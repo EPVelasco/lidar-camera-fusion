@@ -37,6 +37,6 @@ The code implemented in ROS projects a point cloud obtained by a Velodyne VLP16 
 ```
 ## Test
 <p align='center'>
-<img width="80%" src="/images/pointcloud_camera.GIF"/>
+<img width="80%" src="/images/point_cloud_interpoled.GIF"/>
 </p>
 
