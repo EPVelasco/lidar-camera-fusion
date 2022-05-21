@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+    <param name="maxlen"        type="double" value="200.0" />    
+    <param name="minlen"        type="double" value="0.0" />    
+    <param name="max_ang_FOV"   type="double" value="2.7" />
+    <param name="min_ang_FOV"   type="double" value="0.5" />
+    <param name="pcTopic"       type="str"    value="/velodyne_points" />
+    <param name="imgTopic"      type="str"    value="/camera/color/image_raw" />
+
+    <group ns="matrix_file">
+        <rosparam file="$(find lidar_camera_fusion)/cfg/cfg_params.yaml" />
+    </group>
+    
+    <node pkg="lidar_camera_fusion" type="lidar_camera_node" name="lidar_camera_node" output="screen"/>
+  
+</launch>
