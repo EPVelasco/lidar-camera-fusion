@@ -31,6 +31,15 @@ The code implemented in ROS projects a point cloud obtained by a Velodyne VLP16 
 *~/points2* Output point cloud interpolated. ([sensor_msgs/PointCloud2](http://docs.ros.org/en/lunar/api/sensor_msgs/html/msg/PointCloud2.html))
 
 *~/pcOnImage_image* lidar point cloud projected on input image. ([sensor_msgs/Image](http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html))
+
+## Clone repository
+```
+    cd ~/catkin_ws/src
+    git clone https://github.com/EPVelasco/lidar_camera_fusion.git
+    cd ..
+    catkin_make --only-pkg-with-deps lidar_camera_fusion
+```
+
 ## Ros Launch
 ```
   roslaunch lidar_camera_fusion vlp16OnImg.launch 
