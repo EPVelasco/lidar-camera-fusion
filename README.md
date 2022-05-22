@@ -5,8 +5,7 @@ The code implemented in ROS projects a point cloud obtained by a Velodyne VLP16 
 </p>
 
 ## Requisites
-- [ROS](http://wiki.ros.org/ROS/Installation) Kinetic or Melodic
-- [ROS](http://wiki.ros.org/ROS/Installation) Melodic
+- ROS [Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) 
 - [Velodyne](https://github.com/ros-drivers/velodyne) repository
   ```
     cd ~/(your_work_space)/src
