@@ -3,6 +3,7 @@ The code implemented in ROS projects a point cloud obtained by a Velodyne VLP16 
 <p align='center'>
 <img width="80%" src="/images/point_cloud_interpoled.GIF"/>
 </p>
+
 ## Requisites
 - [ROS](http://wiki.ros.org/ROS/Installation) Kinetic or Melodic
 - [ROS](http://wiki.ros.org/ROS/Installation) Melodic
