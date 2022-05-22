@@ -1,5 +1,8 @@
 # Lidar and camera fusion
 The code implemented in ROS projects a point cloud obtained by a Velodyne VLP16 3D-Lidar sensor on an image from an RGB camera. The example used the ROS package to calibrate a camera and a LiDAR from [lidar_camera_calibration](https://github.com/ankitdhall/lidar_camera_calibration).
+<p align='center'>
+<img width="80%" src="/images/point_cloud_interpoled.GIF"/>
+</p>
 ## Requisites
 - [ROS](http://wiki.ros.org/ROS/Installation) Kinetic or Melodic
 - [ROS](http://wiki.ros.org/ROS/Installation) Melodic
@@ -44,8 +47,3 @@ The code implemented in ROS projects a point cloud obtained by a Velodyne VLP16 
 ```
   roslaunch lidar_camera_fusion vlp16OnImg.launch 
 ```
-## Test
-<p align='center'>
-<img width="80%" src="/images/point_cloud_interpoled.GIF"/>
-</p>
-
