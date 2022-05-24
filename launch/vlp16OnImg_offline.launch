@@ -14,11 +14,6 @@
     
     <node pkg="lidar_camera_fusion" type="lidar_camera_node" name="lidar_camera_node" output="screen"/>
 
-<!-- velodyne  -->
-  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" />
-<!-- camera -->
-<include file="$(find realsense2_camera)/launch/rs_camera.launch" />
-
 <!-- rviz- -->
 <node type="rviz" name="rviz" pkg="rviz" args="-d $(find lidar_camera_fusion)/rviz/lidar_camera.rviz" />
   
