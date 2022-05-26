@@ -1,12 +1,20 @@
 <?xml version="1.0"?>
 <launch>
 
-    <param name="maxlen"        type="double" value="200.0" />    
-    <param name="minlen"        type="double" value="0.0" />    
-    <param name="max_ang_FOV"   type="double" value="2.7" />
-    <param name="min_ang_FOV"   type="double" value="0.5" />
-    <param name="pcTopic"       type="str"    value="/velodyne_points" />
-    <param name="imgTopic"      type="str"    value="/camera/color/image_raw" />
+    <param name="maxlen"          type="double" value="10.0" />    
+    <param name="minlen"          type="double" value="0.0" />    
+    <param name="max_ang_FOV"     type="double" value="2.7" />
+    <param name="min_ang_FOV"     type="double" value="0.5" />
+    <param name="pcTopic"         type="str"    value="/velodyne_points" />
+    <param name="imgTopic"        type="str"    value="/camera/color/image_raw" />
+    
+    <param name="x_resolution"    type="double" value="0.25" />
+    <param name="y_interpolation" type="double" value="10.0" />
+    <param name="ang_Y_resolution"    type="double" value="2.05" />
+
+
+
+
 
     <group ns="matrix_file">
         <rosparam file="$(find lidar_camera_fusion)/cfg/cfg_params.yaml" />
@@ -19,7 +27,7 @@
 <!-- camera -->
 <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
 
-<!-- rviz- -->
-<node type="rviz" name="rviz" pkg="rviz" args="-d $(find lidar_camera_fusion)/rviz/lidar_camera.rviz" />
+<!-- rviz
+<node type="rviz" name="rviz" pkg="rviz" args="-d $(find lidar_camera_fusion)/rviz/lidar_camera.rviz" />-->
   
 </launch>

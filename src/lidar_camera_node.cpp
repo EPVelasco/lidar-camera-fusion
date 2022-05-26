@@ -58,6 +58,8 @@ float z_min = 100.0f;
 float max_depth =100.0;
 float min_depth = 8.0;
 
+float interpol_value = 20.0;
+
 // input topics 
 std::string imgTopic = "/camera/color/image_raw";
 std::string pcTopic = "/velodyne_points";
@@ -106,6 +108,9 @@ void callback(const boost::shared_ptr<const sensor_msgs::PointCloud2>& in_pc2 , 
   //PointCloud::Ptr cloud_filter (new PointCloud);
   PointCloud::Ptr cloud_out (new PointCloud);
 
+  //PointCloud::Ptr cloud_aux (new PointCloud);
+ // pcl::PointXYZI point_aux;
+
   std::vector<int> indices;
   pcl::removeNaNFromPointCloud(*msg_pointCloud, *cloud_in, indices);
   
@@ -149,14 +154,25 @@ void callback(const boost::shared_ptr<const sensor_msgs::PointCloud2>& in_pc2 , 
         float r =  rangeImage->getPoint(i, j).range;     
         float zz = rangeImage->getPoint(i, j).z; 
        
-        Eigen::Vector3f tmp_point;
-        rangeImage->calculate3DPoint (float(i), float(j), r, tmp_point);
+       // Eigen::Vector3f tmp_point;
+        //rangeImage->calculate3DPoint (float(i), float(j), r, tmp_point);
         if(std::isinf(r) || r<minlen || r>maxlen || std::isnan(zz)){
             continue;
         }             
         Z.at(j,i) = r;   
         Zz.at(j,i) = zz;
-        ZZei(j,i)=zz;
+        //ZZei(j,i)=tmp_point[2];
+
+
+        //point_aux.x = tmp_point[0];
+        //point_aux.y = tmp_point[1];
+        //point_aux.z = tmp_point[2];
+      
+       // cloud_aux->push_back(point_aux);
+
+
+
+        //std::cout<<"i: "<<i<<" Z.getpoint: "<<zz<<" tmpPoint: "<<tmp_point<<std::endl;
        
       }
 
@@ -166,7 +182,7 @@ void callback(const boost::shared_ptr<const sensor_msgs::PointCloud2>& in_pc2 , 
   arma::vec X = arma::regspace(1, Z.n_cols);  // X = horizontal spacing
   arma::vec Y = arma::regspace(1, Z.n_rows);  // Y = vertical spacing 
 
-  float interpol_value = 20.0;
+  
 
   arma::vec XI = arma:: regspace(X.min(), 1.0, X.max()); // magnify by approx 2
   arma::vec YI = arma::regspace(Y.min(), 1.0/interpol_value, Y.max()); // 
@@ -215,7 +231,7 @@ void callback(const boost::shared_ptr<const sensor_msgs::PointCloud2>& in_pc2 , 
 
   ///////// imagen de rango a nube de puntos  
   int num_pc = 0; 
-  for (uint i=0; i< ZI.n_rows; i+=1)
+  for (uint i=0; i< ZI.n_rows - interpol_value; i+=1)
    {       
       for (uint j=0; j<ZI.n_cols ; j+=1)
       {
@@ -303,13 +319,13 @@ void callback(const boost::shared_ptr<const sensor_msgs::PointCloud2>& in_pc2 , 
 
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr pc_color (new pcl::PointCloud<pcl::PointXYZRGB>);
 
-   
+   //P_out = cloud_out;
 
   for (int i = 0; i < size_inter_Lidar; i++)
   {
-      pc_matrix(0,0) = -P_out->points[i].y;
-      pc_matrix(1,0) = -P_out->points[i].z;
-      pc_matrix(2,0) =  P_out->points[i].x;
+      pc_matrix(0,0) = -P_out->points[i].y;   
+      pc_matrix(1,0) = -P_out->points[i].z;   
+      pc_matrix(2,0) =  P_out->points[i].x;  
       pc_matrix(3,0) = 1.0;
 
       Lidar_cam = Mc * (RTlc * pc_matrix);
@@ -369,6 +385,12 @@ int main(int argc, char** argv)
   nh.getParam("/min_ang_FOV", min_FOV);
   nh.getParam("/pcTopic", pcTopic);
   nh.getParam("/imgTopic", imgTopic);
+
+  nh.getParam("/x_resolution", angular_resolution_x);
+  nh.getParam("/y_interpolation", interpol_value);
+
+  nh.getParam("/ang_Y_resolution", angular_resolution_y);
+  
 
   XmlRpc::XmlRpcValue param;
 
