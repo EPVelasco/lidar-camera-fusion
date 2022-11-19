@@ -47,3 +47,28 @@ The code implemented in ROS projects a point cloud obtained by a Velodyne VLP16 
 ```
   roslaunch lidar_camera_fusion vlp16OnImg.launch 
 ```
+
+## Applications
+Detection and depth estimation for domestic waste in outdoor environments by sensors fusion. [Preprint](https://arxiv.org/abs/2211.04085)
+
+## Citation
+Application
+```
+@article{paez2022detection,
+  title={Detection and depth estimation for domestic waste in outdoor environments by sensors fusion},
+  author={P{\'a}ez-Ubieta, Ignacio de L and Velasco-S{\'a}nchez, Edison and Puente, Santiago T and Candelas, Francisco A},
+  journal={arXiv preprint arXiv:2211.04085},
+  year={2022}
+}
+```
+Code
+```
+@misc {EPVelasco_lidar, 
+  author = {Edison Velasco}, 
+  title = {Lidar and camera fusion}, 
+  year = {2022}, 
+  editor = {GitHub}, 
+  revista = {GitHub Repository},
+  url ={github.com/EPVelasco/lidar-camera-fusion}, 
+}  
+```
