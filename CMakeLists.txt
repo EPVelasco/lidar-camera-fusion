@@ -47,14 +47,25 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
-
-
-add_executable(lidar_camera_node src/lidar_camera_node.cpp)
+add_executable(lidar_camera_node  src/lidar_camera_node.cpp)
 target_link_libraries(lidar_camera_node
    ${catkin_LIBRARIES}
    ${PCL_LIBRARIES}
    ${OpenCV_LIBRARIES}
    ${Boost_LIBRARIES}
 )
+
+add_executable(interpolated_node  src/interpolated_lidar.cpp)
+target_link_libraries(interpolated_node
+   ${catkin_LIBRARIES}
+   ${PCL_LIBRARIES}
+   ${OpenCV_LIBRARIES}
+   ${Boost_LIBRARIES}
+)
+
+
+
+
+
 
 
