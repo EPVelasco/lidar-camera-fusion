@@ -13,7 +13,7 @@ The white dots are the original point cloud of the Velodyne VLP-16 lidar. The co
 </p>
 
 ## Requisites
-- ROS [Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) 
+- ROS [Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) or [Noetic] (https://wiki.ros.org/noetic/Installation/Ubuntu)
 - [Velodyne](https://github.com/ros-drivers/velodyne) repository
   ```
     cd ~/(your_work_space)/src
@@ -21,7 +21,7 @@ The white dots are the original point cloud of the Velodyne VLP-16 lidar. The co
     cd ..
     catkin_make --only-pkg-with-deps velodyne
   ```
-- [PCL](https://pointclouds.org/) (Point Cloud Library)
+- [PCL](https://pointclouds.org/) (Point Cloud Library) (tested with pcl 1.8)
 - [Armadillo](http://arma.sourceforge.net/download.html) (11.0.1 or higher)
   ```
     tar -xvf armadillo-11.1.1.tar.xz
