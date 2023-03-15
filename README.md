@@ -13,7 +13,7 @@ The white dots are the original point cloud of the Velodyne VLP-16 lidar. The co
 </p>
 
 ## Requisites
-- ROS [Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) or [Noetic] (https://wiki.ros.org/noetic/Installation/Ubuntu)
+- ROS [Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) or [Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
 - [Velodyne](https://github.com/ros-drivers/velodyne) repository
   ```
     cd ~/(your_work_space)/src
