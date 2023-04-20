@@ -45,6 +45,7 @@ typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
 
 //Publisher
 ros::Publisher pc_pub;
+ros::Publisher imgD_pub;
 
 float maxlen =100.0;     //maxima distancia del lidar
 float minlen = 0.01;     //minima distancia del lidar
@@ -323,6 +324,22 @@ void callback(const PointCloud::ConstPtr& msg_pointCloud)
   P_out->header.frame_id = "velodyne";
   pc_pub.publish (P_out);
 
+ // cv::Mat interdephtImage =  cv::Mat::zeros(ZI.n_rows, ZI.n_cols*2, cv_bridge::getCvType("mono16"));
+  cv::Mat interdephtImage =  cv::Mat::zeros(ZI.n_rows, ZI.n_cols, cv_bridge::getCvType("mono16"));
+
+
+  for (int i=0; i< ZI.n_cols; ++i)
+      for (int j=0; j<ZI.n_rows ; ++j)
+
+      {
+        interdephtImage.at<ushort>(j, i) = 1-(pow(2,16)/ (maxlen - minlen))*( ZI(j,i)-minlen);   
+        //interdephtImage.at<ushort>(j, i+ZI.n_cols) = (ZzI(j,i)/20.0)* pow(2,16);     
+      }
+
+  sensor_msgs::ImagePtr image_msg;
+  image_msg = cv_bridge::CvImage(std_msgs::Header(),"mono16", interdephtImage).toImageMsg();
+  imgD_pub.publish(image_msg);
+
   //auto t2= Clock::now();
  //std::cout<< std::chrono::duration_cast<std::chrono::nanoseconds>(t2-t1).count()/1000000.0<<std::endl;
  // rate.sleep();
@@ -351,6 +368,7 @@ int main(int argc, char** argv)
   ros::Subscriber sub = nh.subscribe<PointCloud>(pcTopic, 10, callback);
   rangeImage = boost::shared_ptr<pcl::RangeImageSpherical>(new pcl::RangeImageSpherical);
   pc_pub = nh.advertise<PointCloud> ("/pc_interpoled", 10);  
+  imgD_pub = nh.advertise<sensor_msgs::Image>("/pc2imageInterpol", 10);
 
   ros::spin();
 

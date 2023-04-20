@@ -17,5 +17,8 @@
         <rosparam file="$(find lidar_camera_fusion)/cfg/cfg_params.yaml" />
     </group>    
     <node pkg="lidar_camera_fusion" type="interpolated_node" name="interpolated_node" output="screen"/>
+
+<!-- rviz-->
+<node type="rviz" name="rviz" pkg="rviz" args="-d $(find lidar_camera_fusion)/rviz/interpoled.rviz" />
     
   </launch>
