@@ -8,6 +8,13 @@
     <param name="pcTopic"       type="str"    value="/velodyne_points" />
     <param name="imgTopic"      type="str"    value="/camera/color/image_raw" />
 
+    <param name="y_interpolation" type="double" value="20.0" />
+    <param name="x_resolution"    type="double" value="0.25" />
+    <param name="ang_Y_resolution"    type="double" value="2.05" /> 
+    <param name="ang_ground"    type="double" value="0.0" />
+    <param name="max_var"    type="double" value="0.0" />
+    <param name="filter_output_pc"    type="bool" value="true" />
+
     <group ns="matrix_file">
         <rosparam file="$(find lidar_camera_fusion)/cfg/cfg_params.yaml" />
     </group>
