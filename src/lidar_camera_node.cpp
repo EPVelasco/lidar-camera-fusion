@@ -57,8 +57,11 @@ float z_min = 100.0f;
 
 float max_depth =100.0;
 float min_depth = 8.0;
+double max_var = 50.0; 
 
 float interpol_value = 20.0;
+
+bool f_pc = true; 
 
 // input topics 
 std::string imgTopic = "/camera/color/image_raw";
@@ -228,6 +231,35 @@ void callback(const boost::shared_ptr<const sensor_msgs::PointCloud2>& in_pc2 , 
         }
       }      
     }
+  
+  if (f_pc){    
+    //////////////////filtrado de elementos interpolados con el fondo
+    
+    /// filtrado por varianza
+  for (uint i=0; i< ((ZI.n_rows-1)/interpol_value); i+=1)       
+      for (uint j=0; j<ZI.n_cols-5 ; j+=1)
+      {
+        double promedio = 0;
+        double varianza = 0;
+        for (uint k=0; k<interpol_value ; k+=1)
+        //  for(uint jj=j; jj<5+j ; jj+=1)
+          promedio = promedio+ZI((i*interpol_value)+k,j);
+
+      //  promedio = promedio / (interpol_value*5.0);    
+        promedio = promedio / interpol_value;    
+
+        for (uint l = 0; l < interpol_value; l++) 
+       //  for(uint jj=j; jj<5+j ; jj+=1)
+          varianza = varianza + pow((ZI((i*interpol_value)+l,j) - promedio), 2.0);  
+        
+       // varianza = sqrt(varianza / interpol_value);
+
+        if(varianza>max_var)
+          for (uint m = 0; m < interpol_value; m++) 
+            Zout((i*interpol_value)+m,j) = 0;                 
+      }   
+    ZI = Zout;
+  }
 
   ///////// imagen de rango a nube de puntos  
   int num_pc = 0; 
@@ -385,6 +417,8 @@ int main(int argc, char** argv)
   nh.getParam("/min_ang_FOV", min_FOV);
   nh.getParam("/pcTopic", pcTopic);
   nh.getParam("/imgTopic", imgTopic);
+  nh.getParam("/max_var", max_var);  
+  nh.getParam("/filter_output_pc", f_pc);
 
   nh.getParam("/x_resolution", angular_resolution_x);
   nh.getParam("/y_interpolation", interpol_value);

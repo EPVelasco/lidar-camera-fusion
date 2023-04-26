@@ -230,7 +230,8 @@ void callback(const PointCloud::ConstPtr& msg_pointCloud)
         for (uint l = 0; l < interpol_value; l++) 
        //  for(uint jj=j; jj<5+j ; jj+=1)
           varianza = varianza + pow((ZI((i*interpol_value)+l,j) - promedio), 2.0);  
-       // varianza = varianza / (ZI((i*interpol_value),j)/max_depth);
+        
+        varianza = sqrt(varianza / interpol_value);
 
         if(varianza>max_var)
           for (uint m = 0; m < interpol_value; m++) 

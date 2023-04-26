@@ -12,7 +12,7 @@
     <param name="x_resolution"    type="double" value="0.25" />
     <param name="ang_Y_resolution"    type="double" value="2.05" /> 
     <param name="ang_ground"    type="double" value="0.0" />
-    <param name="max_var"    type="double" value="0.0" />
+    <param name="max_var"    type="double" value="100.0" />
     <param name="filter_output_pc"    type="bool" value="true" />
 
     <group ns="matrix_file">
