@@ -77,7 +77,7 @@ rosbag play {your/rosbag/file/address}/loop_8.bag
 ```
 ### Results
 <p align='center'>
-<img width="100%" src="/images/odometriaLidar_experimet.png"/>
+<img width="70%" src="/images/odometriaLidar_experimet.png"/>
 </p>
 
 ## Applications
