@@ -75,6 +75,10 @@ roslaunch floam floam_experimets.launch
 roslaunch lidar_camera_fusion interpolated_vlp16.launch
 rosbag play {your/rosbag/file/address}/loop_8.bag
 ```
+### Results
+<p align='center'>
+<img width="100%" src="/images/odometriaLidar_experimet.png"/>
+</p>
 
 ## Applications
 Detection and depth estimation for domestic waste in outdoor environments by sensors fusion. [Preprint](https://arxiv.org/abs/2211.04085)
