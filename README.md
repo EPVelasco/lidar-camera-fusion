@@ -54,7 +54,19 @@ The white dots are the original point cloud of the Velodyne VLP-16 lidar. The co
 ```
 
 ## Ros Launch
-#### Lidar and camera fusion
+
+You can use this [robasg](https://drive.google.com/file/d/1kq9jk_hmU2sOuMyih4WXSnvdyIEpkkoa/view?usp=sharing) to test the repository.  Please note that the homogeneous camera-LiDAR matrix has inaccuracies. We are recalibrating the camera and LiDAR to reduce this error. However, you can get an idea of how the package works and how it merges the Realsense D435 camera and the Velodyne VLP16 LiDAR. 
+
+#### Rosbag play 
+
+```
+  rosbag play ~/{your_rosbag path}/cam_lidar00.bag
+```
+#### Lidar and camera fusion with rosbag
+```
+  roslaunch lidar_camera_fusion vlp16OnImg_offline.launch 
+```
+#### Lidar and camera fusion with real sensors
 ```
   roslaunch lidar_camera_fusion vlp16OnImg.launch 
 ```
@@ -62,6 +74,7 @@ The white dots are the original point cloud of the Velodyne VLP-16 lidar. The co
 ```
   roslaunch lidar_camera_fusion interpolated_vlp16.launch
 ```
+
 
 ## Testing the package
 ### LiDAR Odometry
