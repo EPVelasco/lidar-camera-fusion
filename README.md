@@ -98,7 +98,19 @@ The image shows the odometry results with the FLOAM package, where the path A an
 Detection and depth estimation for domestic waste in outdoor environments by sensors fusion. [Preprint](https://arxiv.org/abs/2211.04085)
 
 ## Citation
-Application
+LiDAR data augmentation by interpolation on spherical range image
+```
+@INPROCEEDINGS{10275512,
+  author={Velasco-Sánchez, Edison and Loyola Páez-Ubieta, Ignacio de and Candelas, Francisco A. and Puente, Santiago T.},
+  booktitle={2023 IEEE 28th International Conference on Emerging Technologies and Factory Automation (ETFA)}, 
+  title={LiDAR data augmentation by interpolation on spherical range image}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-4},
+  doi={10.1109/ETFA54631.2023.10275512}}
+```
+Application of the method in depth estimation
 ```
 @article{paez2022detection,
   title={Detection and depth estimation for domestic waste in outdoor environments by sensors fusion},
@@ -106,15 +118,4 @@ Application
   journal={arXiv preprint arXiv:2211.04085},
   year={2022}
 }
-```
-Code
-```
-@misc {EPVelasco_lidar, 
-  author = {Edison Velasco}, 
-  title = {Lidar and camera fusion}, 
-  year = {2022}, 
-  editor = {GitHub}, 
-  revista = {GitHub Repository},
-  url ={github.com/EPVelasco/lidar-camera-fusion}, 
-}  
 ```
