@@ -100,15 +100,14 @@ Detection and depth estimation for domestic waste in outdoor environments by sen
 ## Citation
 LiDAR data augmentation by interpolation on spherical range image
 ```
-@INPROCEEDINGS{10275512,
-  author={Velasco-Sánchez, Edison and Loyola Páez-Ubieta, Ignacio de and Candelas, Francisco A. and Puente, Santiago T.},
-  booktitle={2023 IEEE 28th International Conference on Emerging Technologies and Factory Automation (ETFA)}, 
-  title={LiDAR data augmentation by interpolation on spherical range image}, 
+@inproceedings{velasco2023lidar,
+  title={LiDAR data augmentation by interpolation on spherical range image},
+  author={Velasco-S{\'a}nchez, Edison and de Loyola P{\'a}ez-Ubieta, Ignacio and Candelas, Francisco A and Puente, Santiago T},
+  booktitle={2023 IEEE 28th International Conference on Emerging Technologies and Factory Automation (ETFA)},
+  pages={1--4},
   year={2023},
-  volume={},
-  number={},
-  pages={1-4},
-  doi={10.1109/ETFA54631.2023.10275512}}
+  organization={IEEE}
+}
 ```
 Application of the method in depth estimation
 ```
