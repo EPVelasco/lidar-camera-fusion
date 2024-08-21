@@ -55,7 +55,7 @@ The white dots are the original point cloud of the Velodyne VLP-16 lidar. The co
 
 ## Ros Launch
 
-You can use this [robasg](https://drive.google.com/file/d/1kq9jk_hmU2sOuMyih4WXSnvdyIEpkkoa/view?usp=sharing) to test the repository.  Please note that the homogeneous camera-LiDAR matrix has inaccuracies. We are recalibrating the camera and LiDAR to reduce this error. However, you can get an idea of how the package works and how it merges the Realsense D435 camera and the Velodyne VLP16 LiDAR. 
+You can use this [rosbag](https://drive.google.com/file/d/1kq9jk_hmU2sOuMyih4WXSnvdyIEpkkoa/view?usp=sharing) to test the repository.  Please note that the homogeneous camera-LiDAR matrix has inaccuracies. We are recalibrating the camera and LiDAR to reduce this error. However, you can get an idea of how the package works and how it merges the Realsense D435 camera and the Velodyne VLP16 LiDAR. 
 
 #### Rosbag play 
 
@@ -80,9 +80,9 @@ You can use this [robasg](https://drive.google.com/file/d/1kq9jk_hmU2sOuMyih4WXS
 ### LiDAR Odometry
 Lidar odometry has been experimented with the original point cloud and with the interpolated point cloud. You need to install the [FLOAM](https://github.com/wh200720041/floam) package, it is recommended to use the following [fork](https://github.com/EPVelasco/floam).
 We prepared a [rosbag](https://drive.google.com/file/d/1WYWej0UB6PyBj9w5u74Qz_HHuECYS-DC/view?usp=share_link) for testing with the LiDAR odometry and LiDAR interpolation package. The rosbag is from a closed loop in an outdoor environment generated with a velodyne VLP16. 
-It is necessary to modify the name of the topic in the [lauch](https://github.com/EPVelasco/floam/blob/master/launch/floam_experimets.launch#LL29C4-L29C65) file. Thus, to run FLOAM with the original point cloud you put the topic */velodyne_points*, and to launch FLOAM with the interpolated lidar you have to put the topic 
+It is necessary to modify the name of the topic in the [launch](https://github.com/EPVelasco/floam/blob/master/launch/floam_experimets.launch#LL29C4-L29C65) file. Thus, to run FLOAM with the original point cloud you put the topic */velodyne_points*, and to launch FLOAM with the interpolated lidar you have to put the topic 
 
-#### Lauch FLOAM, interpolated_vlp16 and rosbag
+#### Launch FLOAM, interpolated_vlp16 and rosbag
 ```
 roslaunch floam floam_experimets.launch
 roslaunch lidar_camera_fusion interpolated_vlp16.launch
