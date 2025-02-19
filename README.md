@@ -111,10 +111,14 @@ LiDAR data augmentation by interpolation on spherical range image
 ```
 Application of the method in depth estimation
 ```
-@article{paez2022detection,
+@article{paez2023detection,
   title={Detection and depth estimation for domestic waste in outdoor environments by sensors fusion},
   author={P{\'a}ez-Ubieta, Ignacio de L and Velasco-S{\'a}nchez, Edison and Puente, Santiago T and Candelas, Francisco A},
-  journal={arXiv preprint arXiv:2211.04085},
-  year={2022}
+  journal={IFAC-PapersOnLine},
+  volume={56},
+  number={2},
+  pages={9276--9281},
+  year={2023},
+  publisher={Elsevier}
 }
 ```
