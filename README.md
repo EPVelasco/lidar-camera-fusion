@@ -79,7 +79,7 @@ You can use this [rosbag](https://drive.google.com/file/d/1EbWivNqDltEiDCsxMq3Dl
 ## Testing the package
 ### LiDAR Odometry
 Lidar odometry has been experimented with the original point cloud and with the interpolated point cloud. You need to install the [FLOAM](https://github.com/wh200720041/floam) package, it is recommended to use the following [fork](https://github.com/EPVelasco/floam).
-We prepared a [rosbag](https://drive.google.com/file/d/1WYWej0UB6PyBj9w5u74Qz_HHuECYS-DC/view?usp=share_link) for testing with the LiDAR odometry and LiDAR interpolation package. The rosbag is from a closed loop in an outdoor environment generated with a velodyne VLP16. 
+We prepared a [rosbag](https://drive.google.com/file/d/1cYh9NEpaJDz_aQIJyspjLwOFlbHGFeGw/view?usp=sharing) for testing with the LiDAR odometry and LiDAR interpolation package. The rosbag is from a closed loop in an outdoor environment generated with a velodyne VLP16. 
 It is necessary to modify the name of the topic in the [launch](https://github.com/EPVelasco/floam/blob/master/launch/floam_experimets.launch#LL29C4-L29C65) file. Thus, to run FLOAM with the original point cloud you put the topic */velodyne_points*, and to launch FLOAM with the interpolated lidar you have to put the topic 
 
 #### Launch FLOAM, interpolated_vlp16 and rosbag
